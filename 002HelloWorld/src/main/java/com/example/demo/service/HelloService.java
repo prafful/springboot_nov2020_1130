@@ -19,4 +19,19 @@ public class HelloService {
 		return helloDao.getAllMessage();
 	}
 
+	public HelloPojo getMessageById(int id) {
+		// TODO Auto-generated method stub
+		return helloDao.getMessageById(id);
+	}
+
+	public List<HelloPojo> deleteMessageById(int id) {
+		// TODO Auto-generated method stub
+		return helloDao.deleteMessageById(id);
+	}
+
+	public List<HelloPojo> updateMessageById(int id, HelloPojo hp) {
+		// TODO Auto-generated method stub
+		return helloDao.updateMessageById(id, hp);
+	}
+
 }

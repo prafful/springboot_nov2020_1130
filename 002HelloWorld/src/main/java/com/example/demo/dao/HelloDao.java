@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,48 @@ public class HelloDao {
 	public List<HelloPojo> getAllMessage() {
 		// TODO Auto-generated method stub
 		return messages;
+	}
+
+
+
+	public HelloPojo getMessageById(int id) {
+		// TODO Auto-generated method stub
+		for (HelloPojo helloPojo : messages) {
+			if(helloPojo.getId() == id ) {
+				return helloPojo;
+			}
+		}
+		return new HelloPojo();
+		
+	
+	}
+
+
+
+	public List<HelloPojo> deleteMessageById(int id) {
+		// TODO Auto-generated method stub
+		for (HelloPojo helloPojo : messages) {
+			if(helloPojo.getId() == id ) {
+				messages.remove(helloPojo);
+				return messages;
+			}
+		}
+		return new ArrayList<HelloPojo>();
+	}
+
+
+
+	public List<HelloPojo> updateMessageById(int id, HelloPojo hp) {
+		// TODO Auto-generated method stub
+		for (HelloPojo helloPojo : messages) {
+			if(helloPojo.getId() == id ) {
+				helloPojo.setMessage(hp.getMessage());
+				helloPojo.setStatus(hp.isStatus());
+				return messages;
+						
+			}
+		}
+		return new ArrayList<HelloPojo>();
 	}
 
 }
