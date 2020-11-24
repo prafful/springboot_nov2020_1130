@@ -3,6 +3,7 @@ package com.example.demo.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,6 +36,12 @@ public class FriendsRestController {
 	public FriendEntity updateFriendById(@PathVariable int id, @RequestBody FriendPojo fp) {
 		return friendService.updateFriendById(id, fp);
 	}
+	
+	@DeleteMapping("/friends/delete/{id}")
+	public FriendEntity deleteFriendById(@PathVariable int id) {
+		return friendService.deleteFriendById(id);
+	}
+	
 	
 	
 }

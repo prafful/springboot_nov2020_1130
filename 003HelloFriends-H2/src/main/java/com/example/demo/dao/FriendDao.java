@@ -55,4 +55,20 @@ public class FriendDao {
 		return friendRepository.findById(id).get();
 	}
 
+	public FriendEntity deleteFriendById(int id) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		//check if friend with given id is valid
+		//optional will be empty if id is invalid
+		//optional will contain FriendEntity instance if id is valid
+		Optional<FriendEntity> feo =  friendRepository.findById(id);
+		if(feo.isPresent()) {
+			friendRepository.deleteById(id);
+		}else {
+			return new FriendEntity(id, null, null, 0, false);
+		}
+		
+		return new FriendEntity();
+	}
+
 }
