@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,4 +30,11 @@ public class FriendsRestController {
 	public List<FriendEntity> addFriend(@RequestBody FriendPojo fp){
 		return friendService.addFriend(fp);
 	}
+	
+	@PutMapping("/friends/update/{id}")
+	public FriendEntity updateFriendById(@PathVariable int id, @RequestBody FriendPojo fp) {
+		return friendService.updateFriendById(id, fp);
+	}
+	
+	
 }

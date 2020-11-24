@@ -25,4 +25,9 @@ public class FriendService {
 		return friendDao.addFriend(fp);
 	}
 
+	public FriendEntity updateFriendById(int id, FriendPojo fp) {
+		// TODO Auto-generated method stub
+		return friendDao.updateFriendById(id, fp);
+	}
+
 }
