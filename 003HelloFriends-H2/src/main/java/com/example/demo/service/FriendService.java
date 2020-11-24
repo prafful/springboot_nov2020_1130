@@ -35,4 +35,14 @@ public class FriendService {
 		return friendDao.deleteFriendById(id);
 	}
 
+	public List<FriendEntity> getByName(String name) {
+		// TODO Auto-generated method stub
+		return friendDao.getByName(name);
+	}
+
+	public List<FriendEntity> getByLocation(String location) {
+		// TODO Auto-generated method stub
+		return friendDao.getByLocation(location);
+	}
+
 }

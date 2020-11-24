@@ -70,5 +70,13 @@ public class FriendDao {
 		
 		return new FriendEntity();
 	}
+	
+	public List<FriendEntity> getByName(String name){
+		return friendRepository.findByName(name);
+	}
+	
+	public List<FriendEntity> getByLocation(String location){
+		return friendRepository.findByLocation(location);
+	}
 
 }

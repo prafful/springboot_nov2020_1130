@@ -42,6 +42,16 @@ public class FriendsRestController {
 		return friendService.deleteFriendById(id);
 	}
 	
+	@GetMapping("/friends/get/name/{name}")
+	public List<FriendEntity> getByName(@PathVariable String name){
+		return friendService.getByName(name);
+	}
+	
+	@GetMapping("/friends/get/location/{location}")
+	public List<FriendEntity> getByLocation(@PathVariable String location){
+		return friendService.getByLocation(location);
+	}
+	
 	
 	
 }
