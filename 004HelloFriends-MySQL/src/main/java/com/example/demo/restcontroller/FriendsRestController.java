@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.FriendEntity;
@@ -21,12 +22,27 @@ public class FriendsRestController {
 	@Autowired
 	private FriendService friendService;
 	
-	@GetMapping("/friends/all")
+	@RequestMapping("/welcome")
+	public String message() {
+		return "Welcome to Spring Boot 2.4.0!!!!";
+	}
+	
+	@GetMapping("/friends/get/all")
 	public List<FriendEntity> getAllFriends(){
 		return friendService.getAllFriends();
 	}
-
 	
+	@GetMapping("/friends/get/name/{name}")
+	public List<FriendEntity> getByName(@PathVariable String name){
+		return friendService.getByName(name);
+	}
+	
+	@GetMapping("/friends/get/location/{location}")
+	public List<FriendEntity> getByLocation(@PathVariable String location){
+		return friendService.getByLocation(location);
+	}
+	
+
 	@PostMapping("/friends/add")
 	public List<FriendEntity> addFriend(@RequestBody FriendPojo fp){
 		return friendService.addFriend(fp);
@@ -42,15 +58,7 @@ public class FriendsRestController {
 		return friendService.deleteFriendById(id);
 	}
 	
-	@GetMapping("/friends/get/name/{name}")
-	public List<FriendEntity> getByName(@PathVariable String name){
-		return friendService.getByName(name);
-	}
-	
-	@GetMapping("/friends/get/location/{location}")
-	public List<FriendEntity> getByLocation(@PathVariable String location){
-		return friendService.getByLocation(location);
-	}
+
 	
 	
 	
