@@ -73,7 +73,7 @@ public class UserPrincipal implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return true;
+		return user.getActive() == 1;
 	}
 
 }

@@ -20,7 +20,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// authentication - configure in-memory username and password to check if user is authenticated!
+		// authentication - check if user is authenticated!
 		auth.authenticationProvider(authenticationProvider());
 	}
 

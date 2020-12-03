@@ -22,7 +22,7 @@ public class FriendsRestController {
 	private FriendService friendService;
 	
 	@GetMapping("/friends/all")
-	public List<FriendEntity> getAllFriends(){
+	public List<FriendPojo> getAllFriends(){
 		return friendService.getAllFriends();
 	}
 

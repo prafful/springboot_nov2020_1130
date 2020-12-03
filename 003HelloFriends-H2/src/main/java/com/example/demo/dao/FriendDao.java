@@ -1,5 +1,6 @@
 package com.example.demo.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,9 +17,24 @@ public class FriendDao {
 	@Autowired
 	private FriendRepository friendRepository;
 
-	public List<FriendEntity> getAllFriends() {
+	public List<FriendPojo> getAllFriends() {
 		// TODO Auto-generated method stub
-		return friendRepository.findAll();
+		List<FriendEntity> feList = friendRepository.findAll();
+		List<FriendPojo> fePojoList = new ArrayList<FriendPojo>();
+		
+		for(FriendEntity fe: feList) {
+			FriendPojo fp = new FriendPojo();
+			fp.setId(fe.getId());
+			fp.setName(fe.getName());
+			fp.setLocation(fe.getLocation());
+			fp.setScore(fe.getScore());
+			fp.setStatus(fe.isStatus());
+			
+			fePojoList.add(fp);
+		}
+		
+		
+		return fePojoList;
 	}
 
 	public List<FriendEntity> addFriend(FriendPojo fp) {

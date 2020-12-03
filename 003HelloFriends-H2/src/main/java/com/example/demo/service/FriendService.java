@@ -15,7 +15,7 @@ public class FriendService {
 	@Autowired
 	private FriendDao friendDao;
 
-	public List<FriendEntity> getAllFriends() {
+	public List<FriendPojo> getAllFriends() {
 		// TODO Auto-generated method stub
 		return friendDao.getAllFriends();
 	}
